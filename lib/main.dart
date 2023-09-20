@@ -5,7 +5,6 @@ import 'package:tarea3/screens/home_screen.dart';
 import 'package:tarea3/screens/login_screen.dart';
 import 'package:tarea3/services/change_theme_provider.dart';
 import 'package:tarea3/services/local_storage.dart';
-import 'package:tarea3/settings/login_settings.dart';
 import 'package:tarea3/settings/styles_app.dart';
 
 void main() async {
