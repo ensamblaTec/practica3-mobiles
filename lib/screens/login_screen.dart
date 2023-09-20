@@ -11,6 +11,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool isChecked = false;
   @override
+  void initState() {
+    if (LocalStorage.prefs.getBool('isActiveSession') != null) {
+      LocalStorage.prefs.getBool('isActiveSession') as bool == true 
+          ? isChecked = true 
+          : isChecked = false;
+    }
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
