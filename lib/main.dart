@@ -44,7 +44,7 @@ class _MainAppState extends State<MainApp> {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           routes: getRoutes(),
-          theme: false
+          theme: changeTheme.isLightTheme 
               ? StylesApp.lightTheme(context)
               : StylesApp.darkTheme(context),
           home: isActive ? const HomeScreen() : const LoginScreen(),
