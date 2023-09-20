@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarea3/services/local_storage.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -43,14 +44,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     value: isChecked,
                     onChanged: (value) {
                       setState(() {
-                        isChecked = !isChecked;
+                        LocalStorage.prefs.setBool('isActiveSession', value!);
+                        isChecked = value;
                       });
                     },
                   ),
                   Expanded(
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/home');
+                            if ((emailController.text == "admin@example.com") && (passwordController.text == "1234")) {
+                              Navigator.pushNamed(context, '/home');
+                            }
                           },
                           child: const Text('Login'))),
                 ],
