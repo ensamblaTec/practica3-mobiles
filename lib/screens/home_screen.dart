@@ -11,12 +11,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String typeOfTheme = 'Light';
 
   @override
   Widget build(BuildContext context) {
       final changeTheme = Provider.of<ThemeProvider>(context);
       return Scaffold(
+        // backgroundColor: Color.fromARGB(190,255,98,180),
         appBar: AppBar(title: const Text('Home Page')),
         drawer: _buildDrawer(changeTheme, context),
       );
@@ -26,8 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Drawer(
             child: ListView(children: [
               ListTile(
-                title: Text('Theme $typeOfTheme'),
+                title: Text('Theme ${LocalStorage.prefs.getBool("isThemeLight") == true ? "Light" : "Dark"}'),
                 trailing: Switch(
+                  inactiveThumbColor: const Color(0xFF3b83bd),
+                  inactiveTrackColor: const Color(0XFF04dafa),
                   value: changeTheme.isLightTheme,
                   onChanged: (value) {
                     setState(() {

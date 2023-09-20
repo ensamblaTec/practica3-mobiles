@@ -25,54 +25,64 @@ class _LoginScreenState extends State<LoginScreen> {
     TextEditingController passwordController = TextEditingController();
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        body: SafeArea(
-      child: Center(
-        child: SizedBox(
-          width: size.width * 0.76,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // username
-              const Text('Login Page',
-                  style: TextStyle(
-                    color: Color(0xFF221133),
-                    fontSize: 30,
-                  )),
-              _buildInputText(
-                  'email', TextInputType.emailAddress, emailController),
-              // pasword
-              _buildInputText(
-                  'password', TextInputType.visiblePassword, passwordController,
-                  isPassword: true),
-              // Button
-              const SizedBox(height: 50),
-              Row(
-                children: [
-                  const Text('Keep sign'),
-                  Checkbox(
-                    value: isChecked,
-                    onChanged: (value) {
-                      setState(() {
-                        LocalStorage.prefs.setBool('isActiveSession', value!);
-                        isChecked = value;
-                      });
-                    },
-                  ),
-                  Expanded(
-                      child: ElevatedButton(
-                          onPressed: () {
-                            if ((emailController.text == "admin@example.com") && (passwordController.text == "1234")) {
-                              Navigator.pushNamed(context, '/home');
-                            }
-                          },
-                          child: const Text('Login'))),
-                ],
-              )
-            ],
-          ),
+      // backgroundColor: const Color(0xFFDD969C),
+        body: Container(
+          decoration: const BoxDecoration(
+          image: DecorationImage(
+            opacity: .8,
+            fit: BoxFit.fill,
+            image: NetworkImage('https://w0.peakpx.com/wallpaper/389/270/HD-wallpaper-sword-world-cool-fantasy.jpg')
+            ),
         ),
-      ),
-    ));
+          child: SafeArea(
+              child: Center(
+          child: SizedBox(
+            width: size.width * 0.76,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // username
+                const Text('Login Page',
+                    style: TextStyle(
+                      color: Color(0xFF221133),
+                      fontSize: 30,
+                    )),
+                _buildInputText(
+                    'email', TextInputType.emailAddress, emailController),
+                // pasword
+                _buildInputText(
+                    'password', TextInputType.visiblePassword, passwordController,
+                    isPassword: true),
+                // Button
+                const SizedBox(height: 50),
+                Row(
+                  children: [
+                    const Text('Keep sign'),
+                    Checkbox(
+                      value: isChecked,
+                      onChanged: (value) {
+                        setState(() {
+                          LocalStorage.prefs.setBool('isActiveSession', value!);
+                          isChecked = value;
+                        });
+                      },
+                    ),
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              if ((emailController.text == "admin@example.com") && (passwordController.text == "1234")) {
+                                Navigator.pushNamed(context, '/home');
+                              }
+                            },
+                            child: const Text('Login'))),
+                  ],
+                )
+              ],
+            ),
+          ),
+              ),
+            ),
+        ));
   }
 
   TextField _buildInputText(name, inputType, controller, {isPassword = false}) {
@@ -86,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
               : const Icon(Icons.done),
           labelText: name,
           labelStyle: const TextStyle(
-              color: Color.fromARGB(255, 26, 111, 33),
+              color: Colors.black,
               fontWeight: FontWeight.w900),
           floatingLabelAlignment: FloatingLabelAlignment.start),
       onChanged: (value) {},

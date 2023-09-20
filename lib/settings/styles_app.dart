@@ -7,7 +7,7 @@ class StylesApp {
         // primaryColor: const Color.fromARGB(255, 0, 0, 0),
         useMaterial3: true,
         colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: const Color.fromARGB(255, 200, 0, 0),
+              background: const Color(0xFFDD969C)
             )); // copiar la variable
   }
   static ThemeData darkTheme(BuildContext context) {
@@ -15,7 +15,7 @@ class StylesApp {
     return theme.copyWith(
       useMaterial3: true,
       colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: const Color.fromARGB(255, 50, 10, 10)
+        primary: const Color(0xFF3b83bd),
       )
     );
   }
